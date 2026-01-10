@@ -33,11 +33,11 @@ clean:
 
 .PHONY: run-debug
 run-debug: debug
-	@./$(BUILD_DEBUG)/foolsafe
+	@./$(BUILD_DEBUG)/awt
 
 .PHONY: run-release
 run-release: release
-	@./$(BUILD_RELEASE)/foolsafe
+	@./$(BUILD_RELEASE)/awt
 
 .PHONY: install
 install: release
