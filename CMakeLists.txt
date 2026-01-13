@@ -28,18 +28,19 @@ set(SOURCES
     src/main.cpp
     src/weather_api.cpp
     src/ascii_art.cpp
+    src/display.cpp
 )
 
 add_executable(ascii-weather-tui ${SOURCES})
 
-target_link_directories(ascii-weather-tui PRIVATE
+target_include_directories(ascii-weather-tui PRIVATE
     ${CMAKE_SOURCE_DIR}/include
 )
 
 target_link_libraries(ascii-weather-tui PRIVATE
-        simdjson::simdjson
-        CLI11::CLI11
-        httplib::httplib
+    simdjson::simdjson
+    CLI11::CLI11
+    httplib::httplib
 )
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
