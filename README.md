@@ -110,7 +110,7 @@ Vienna
  _ - _ - _ -
   _ - _ - _
 
--7.2℃
+-7.2C
 ```
 
 Normal Mode (default)
@@ -128,8 +128,8 @@ Kathmandu, NP
   _ - _ - _
 
 Condition: haze
-Temperature: 8.8℃
-Feels like: 10.1℃
+Temperature: 8.8C
+Feels like: 10.1C
 Humidity: 62%
 
 --------------------------------------------------
@@ -152,10 +152,10 @@ Weather Report: Muscat, OM
 Condition: clear sky
 
 Temperature:
-  Current: 21.1℃
-  Feels like: 21.0℃
-  Min: 21.0℃
-  Max: 21.0℃
+  Current: 21.1C
+  Feels like: 21.0C
+  Min: 21.0C
+  Max: 21.0C
 
 Other:
   Humidity: 76%
