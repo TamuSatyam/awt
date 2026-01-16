@@ -33,7 +33,7 @@ std::string getTempColor(double temp, const std::string &units) {
 }
 
 std::string getUnitSymbol(const std::string &units) {
-  return (units == "imperial") ? "℉" : "℃";
+  return (units == "imperial") ? "F" : "C";
 }
 
 void displayWeather(const WeatherAPI::WeatherData &data,
