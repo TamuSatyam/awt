@@ -31,16 +31,20 @@ jobs:
         env:
           VCPKG_FORCE_SYSTEM_BINARIES: 1
         run: |
-          ./vcpkg/vcpkg install simdjson cli11 cpp-httplib[openssl] openssl
+          ./vcpkg/vcpkg install \
+            simdjson cli11 cpp-httplib[openssl] openssl \
+            --triplet=x64-linux-musl
 
       - name: Build
         run: |
-          mkdir build
-          cd build
-          cmake -DCMAKE_BUILD_TYPE=Release \
-                -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake ..
-          make -j$(nproc)
-          strip ascii-weather-tui
+          cmake -S . -B build \
+            -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DVCPKG_TARGET_TRIPLET=x64-linux-musl \
+            -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake \
+            -DCMAKE_EXE_LINKER_FLAGS="-static -static-libgcc -static-libstdc++"
+
+          cmake --build build --parallel $(nproc)
 
       - name: Create tarball
         run: |

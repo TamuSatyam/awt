@@ -7,10 +7,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
 
-if(UNIX AND NOT APPLE)
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
-endif()
-
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
     set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -Wall -Wextra -Wpedantic")
     set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
@@ -51,6 +47,8 @@ target_link_libraries(ascii-weather-tui PRIVATE
     httplib::httplib
     OpenSSL::SSL
     OpenSSL::Crypto
+    Threads::Threads
+    ${CMAKE_DL_LIBS}
 )
 
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
