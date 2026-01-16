@@ -9,7 +9,8 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    container: alpine:latest
+    container:
+      image: alpine:latest
     steps:
       - name: Install build dependencies
         run: |
@@ -130,7 +131,7 @@ jobs:
 
   create-release:
     # needs: [build-linux, build-macos, build-windows]
-      needs: build-linux
+    needs: build-linux
     runs-on: ubuntu-latest
     permissions:
       contents: write
